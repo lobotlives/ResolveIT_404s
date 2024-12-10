@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Ticket - ResolveIT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="new-ticket-container">
+        <h2>New Ticket</h2>
+        
+        <div class="form-section">
+            <h3>Company Information</h3>
+            <form id="ticketForm">
+                <div class="form-group">
+                    <label for="companySelect">Company:</label>
+                    <select id="companySelect" required>
+                        <option value="">Select Company</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="customerSelect">Contact:</label>
+                    <select id="customerSelect" required>
+                        <option value="">Select Contact</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Contact Email" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" placeholder="Contact Phone Number" readonly>
+                </div>
+
+                <div class="form-section">
+                    <h3>Ticket Details</h3>
+                    <div class="form-group">
+                        <label for="ticketSummary">Summary:</label>
+                        <input type="text" id="ticketSummary" placeholder="Enter ticket summary" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userSelect">Assign User:</label>
+                        <select id="userSelect" required>
+                            <option value="">Select User</option>
+                            <!-- Options populated by JavaScript -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ticketPriority">Priority:</label>
+                        <select id="ticketPriority" required>
+                            <option value="">Select Priority</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ticketStatus">Status:</label>
+                        <select id="ticketStatus" required>
+                            <option value="New">New</option>
+                            <option value="Assigned">Assigned</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Waiting (Customer Response)">Waiting (Customer Response)</option>
+                            <option value="On Hold">On Hold</option>
+                            <option value="Complete">Complete</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Initial Description</h3>
+                    <div class="form-group">
+                        <label for="initialDescription">Notes:</label>
+                        <textarea id="initialDescription" placeholder="Enter initial description..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="create-ticket-btn">Create Ticket</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="create-ticket.js"></script>
+</body>
+</html>

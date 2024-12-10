@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResolveIT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>ResolveIT </h1>
+
+        <!-- Navigation Bar -->
+        <div class="nav-bar">
+				<div class="dropdown">
+					<button class="dropbtn" onclick="toggleDropdown()"><i class="fas fa-plus"></i> New</button>
+				<div class="dropdown-content" id="dropdownContent">
+					<a id="newTicketLink" href="create-ticket.html" onclick="showNewTicketForm()">New Ticket</a>
+					<a id="newCompanyLink" href="new-company.html" onclick="showNewCompanyForm()">New Company</a>
+					<a id="newUserLink" href="new-user.html" onclick="showNewUserForm()">New User</a>
+                    <a id="newSystemUserLink" href="new-system-user.html" onclick="showNewSystemUserForm()">New System User</a>
+    </div>
+    <script>
+        // Wait for the DOM to fully load
+        window.onload = function() {
+            // Get the user's role from localStorage
+            var role = localStorage.getItem('role');
+            
+            
+            if (role == 'Technician') {
+                // Hide admin-specific links if role is not admin
+                
+                document.getElementById('newCompanyLink').style.display = 'none';
+                document.getElementById('newUserLink').style.display = 'none';
+                document.getElementById('newSystemUserLink').style.display = 'none';
+                // Check if the role is 'admin'
+            } else if (role != 'Admin') {
+
+                document.getElementById('newTicketLink').style.display = 'none';
+                document.getElementById('newCompanyLink').style.display = 'none';
+                document.getElementById('newUserLink').style.display = 'none';
+                document.getElementById('newSystemUserLink').style.display = 'none';
+            }
+        };
+    </script>
+</div>
+
+            <button onClick="location.href = 'ticketScreen.html';"><i class="fas fa-calendar"></i> My Tickets</button>
+            <button onclick="window.location.href='all-tickets.html'">Ticket Search</button>
+            <button onClick="location.href = 'index.html';"><i class="fas fa-calendar"></i> Logout</button>
+        </div>
+    </div>
+
+    <div class="main">
+
+        <div class="ticket-list">
+            <h2>My List</h2>
+            <table id="ticketTable" class="ticket-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Priority</th>
+                        <th>Company</th>
+                        <th>Status</th>
+                        <th>Summary</th>
+                        <th>Contact</th>
+                        <th>Date Created</th>
+                        <th>Ticket Owner</th>
+                    </tr>
+                </thead>
+                <tbody id="ticketContainer">
+                    <!-- Tickets will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        
+        
+
+    <script src="ticket-screen.js"></script>
+</body>
+</html>
